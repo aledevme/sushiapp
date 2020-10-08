@@ -20,11 +20,31 @@ class _MenuState extends State<Menu> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _headerMenuAndProfile()
+              _headerMenuAndProfile(),
+              SizedBox(height: 20),
+              _textPresentation()
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget _textPresentation(){
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text('Healthy and', style: TextStyle(
+          fontSize: 25
+        )),
+        SizedBox(
+          height: 10,
+        ),
+        Text('Delicious sushi', style: TextStyle(
+          fontSize: 25,
+          fontWeight: FontWeight.w700
+        )),
+      ],
     );
   }
 
