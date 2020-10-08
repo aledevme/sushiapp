@@ -42,7 +42,7 @@ class Home extends StatelessWidget {
               ),
               SizedBox(height: 20),
               GestureDetector(
-                onTap: ()=>Navigator.pushNamed(context, 'home'),
+                onTap: ()=>Navigator.pushNamed(context, 'menu'),
                 child: Container(
                   height: 60,
                   width: 60,
