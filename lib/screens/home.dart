@@ -5,6 +5,16 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: SafeArea(
+        child: Container(
+          child: Column(
+            children: [
+              
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
