@@ -10,7 +10,9 @@ class Home extends StatelessWidget {
         child: Container(
           child: Column(
             children: [
-              
+              Image(
+                image: AssetImage('assets/tablesushi.png'),
+              )
             ],
           ),
         ),
