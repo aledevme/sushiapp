@@ -42,7 +42,8 @@ class _MenuState extends State<Menu> {
               SizedBox(height: 20),
               _textPresentation(),
               SizedBox(height: 20),
-              _searchField()
+              _searchField(),
+              _carrouselTypesOfSushi()
             ],
           ),
         ),
@@ -116,12 +117,44 @@ class _MenuState extends State<Menu> {
       scrollDirection: Axis.horizontal,
       itemCount: typesSushi.length,
       itemBuilder: (BuildContext context, int index){
-          return Container(
-            
+          bool isSelected = selected == index;
+          return GestureDetector(
+            onTap: ()=>changeType(index),
+            child: Container(
+              decoration: BoxDecoration(
+                color: isSelected ? Colors.white : Colors.transparent,
+                borderRadius: BorderRadius.circular(10)
+              ),
+              margin: EdgeInsets.only(
+                top: 10,
+                right: 10
+              ),
+              padding: EdgeInsets.all(10),
+              child: Row(
+                children: [
+                  isSelected ? Container(height: 7, width: 7, decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.orange, 
+                  )) : Container(),
+                  SizedBox(width: 10),
+                  Text(typesSushi[index].name, 
+                    style: TextStyle(
+                      fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal
+                    ),
+                  )
+                ],
+              )
+            )
           );
         }
       )
     );
+  }
+
+  changeType(int index){
+    setState(() {
+      selected = index;
+    });
   }
 
   
