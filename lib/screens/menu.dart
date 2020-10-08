@@ -26,7 +26,6 @@ class _MenuState extends State<Menu> {
               _textPresentation(),
               SizedBox(height: 20),
               _searchField()
-
             ],
           ),
         ),
@@ -92,4 +91,6 @@ class _MenuState extends State<Menu> {
       ),
     );
   }
+
+  
 }
