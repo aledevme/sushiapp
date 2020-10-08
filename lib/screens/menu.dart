@@ -22,10 +22,39 @@ class _MenuState extends State<Menu> {
             children: [
               _headerMenuAndProfile(),
               SizedBox(height: 20),
-              _textPresentation()
+              _textPresentation(),
+              SizedBox(height: 20),
+              _searchField()
+
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  
+
+  Widget _headerMenuAndProfile(){
+    return Container(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Image(
+            image: AssetImage('assets/menu.png'),
+          ),
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Colors.blue[100],
+            ),
+            height: 40,
+            width: 40,
+            child: Image(
+              image: AssetImage('assets/profile.png'),
+            ),
+          )
+        ],
       ),
     );
   }
@@ -48,26 +77,17 @@ class _MenuState extends State<Menu> {
     );
   }
 
-  Widget _headerMenuAndProfile(){
-    return Container(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Image(
-            image: AssetImage('assets/menu.png'),
-          ),
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Colors.blue[100],
-            ),
-            height: 40,
-            width: 40,
-            child: Image(
-              image: AssetImage('assets/profile.png'),
-            ),
-          )
-        ],
+  Widget _searchField(){
+    return TextField(
+      decoration: InputDecoration(
+        enabledBorder: UnderlineInputBorder(
+          borderSide: BorderSide(color: Colors.white),
+          borderRadius: BorderRadius.circular(10)
+        ),
+        filled: true,
+        fillColor: Colors.white,
+        prefixIcon: Icon(Icons.search),
+        hintText: 'Search your favorite sushi'
       ),
     );
   }
