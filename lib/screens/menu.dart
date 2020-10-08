@@ -8,20 +8,23 @@ class Menu extends StatefulWidget {
 }
 
 class _MenuState extends State<Menu> {
-  int selected = 0;
 
-  
+  //state
+  int selected = 0;
+  //array list of types of sushi
+  List <TypeSushi> typesSushi = [
+    TypeSushi(name: 'Maki sushi'),
+    TypeSushi(name: 'Chirashizushi'),
+    TypeSushi(name: 'Nigirizushi'),
+    TypeSushi(name: 'Maki sushi'),
+    TypeSushi(name: 'Maki sushi'),
+    TypeSushi(name: 'Maki sushi')
+  ];
+
   @override
   Widget build(BuildContext context) {
     
-    List <TypeSushi> typesSushi = [
-      TypeSushi(name: 'Maki sushi'),
-      TypeSushi(name: 'Chirashizushi'),
-      TypeSushi(name: 'Nigirizushi'),
-      TypeSushi(name: 'Maki sushi'),
-      TypeSushi(name: 'Maki sushi'),
-      TypeSushi(name: 'Maki sushi')
-    ];
+    
 
     return Scaffold(
       backgroundColor: Colors.grey[100],
@@ -103,6 +106,21 @@ class _MenuState extends State<Menu> {
         prefixIcon: Icon(Icons.search),
         hintText: 'Search your favorite sushi'
       ),
+    );
+  }
+
+  Widget _carrouselTypesOfSushi(){
+    return Container(
+      height: 46,
+      child: ListView.builder(
+      scrollDirection: Axis.horizontal,
+      itemCount: typesSushi.length,
+      itemBuilder: (BuildContext context, int index){
+          return Container(
+            
+          );
+        }
+      )
     );
   }
 
