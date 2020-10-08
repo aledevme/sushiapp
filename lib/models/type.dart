@@ -1,7 +1,7 @@
-class Type{
+class TypeSushi{
   String name;
 
-  Type({
+  TypeSushi({
     this.name
   });
 }

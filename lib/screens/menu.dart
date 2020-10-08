@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sushi_app/models/type.dart';
 
 class Menu extends StatefulWidget {
 
@@ -7,8 +8,21 @@ class Menu extends StatefulWidget {
 }
 
 class _MenuState extends State<Menu> {
+  int selected = 0;
+
+  
   @override
   Widget build(BuildContext context) {
+    
+    List <TypeSushi> typesSushi = [
+      TypeSushi(name: 'Maki sushi'),
+      TypeSushi(name: 'Chirashizushi'),
+      TypeSushi(name: 'Nigirizushi'),
+      TypeSushi(name: 'Maki sushi'),
+      TypeSushi(name: 'Maki sushi'),
+      TypeSushi(name: 'Maki sushi')
+    ];
+
     return Scaffold(
       backgroundColor: Colors.grey[100],
       body: SafeArea(
