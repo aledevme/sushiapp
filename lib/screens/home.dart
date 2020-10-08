@@ -40,6 +40,25 @@ class Home extends StatelessWidget {
                   ),
                 ),
               ),
+              SizedBox(height: 20),
+              GestureDetector(
+                onTap: ()=>Navigator.pushNamed(context, 'home'),
+                child: Container(
+                  height: 60,
+                  width: 60,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(40),
+                    color: Colors.black
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.arrow_forward, color: Colors.white),
+                      Icon(Icons.arrow_forward_ios, size: 10 ,color: Colors.white)
+                    ],
+                  ),
+                ),
+              )
             ],
           ),
         ),
