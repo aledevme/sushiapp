@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sushi_app/models/sushi.dart';
 import 'package:sushi_app/models/type.dart';
 
 class Menu extends StatefulWidget {
@@ -21,10 +22,23 @@ class _MenuState extends State<Menu> {
     TypeSushi(name: 'Maki sushi')
   ];
 
+  List <Sushi> sushies = [
+    Sushi(
+      picture: 'https://img2.freepng.es/20180606/jqi/kisspng-california-roll-sushi-sashimi-tempura-japanese-cui-5b187982be6e21.30876342152833062678.jpg',
+      name:'California roll',
+      description: 'Avocado & salmon',
+      price: '7.99'
+    ),
+    Sushi(
+      picture: 'https://img2.pngio.com/sushi-rolls-png-picture-860384-sushi-roll-png-rainbow-roll-sushi-png-400_400.png',
+      name:'Rainbow sushi',
+      description: 'Cheese, salmon & avocado',
+      price: '7.99'
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
-    
-    
 
     return Scaffold(
       backgroundColor: Colors.grey[100],
@@ -43,7 +57,9 @@ class _MenuState extends State<Menu> {
               _textPresentation(),
               SizedBox(height: 20),
               _searchField(),
-              _carrouselTypesOfSushi()
+              _carrouselTypesOfSushi(),
+              SizedBox(height: 10),
+              _listOfSushi()
             ],
           ),
         ),
@@ -155,6 +171,26 @@ class _MenuState extends State<Menu> {
     setState(() {
       selected = index;
     });
+  }
+
+  Widget _listOfSushi(){
+    return Expanded(
+      child:GridView.builder(
+            itemCount: sushies.length,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, crossAxisSpacing: 4.0, mainAxisSpacing: 4.0),
+            itemBuilder: (BuildContext context, int index){
+              return Container(
+                child: Card(
+                  child: Column(
+                    children: [
+                      Text(sushies[index].name)
+                    ],
+                  ),
+                ),
+              );
+            },
+        ),
+    );
   }
 
   
