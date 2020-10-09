@@ -224,12 +224,17 @@ class _MenuState extends State<Menu> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Image(
-                      height: 130,
-                      width: 130,
-                      image: NetworkImage(sushies[index].picture),
+                    GestureDetector(
+                      onTap: ()=>Navigator.pushNamed(context, 'detail'),
+                      child: Image(
+                        height: 130,
+                        width: 130,
+                        image: NetworkImage(sushies[index].picture),
+                      ),
                     ),
-                    Text(sushies[index].name),
+                    Text(sushies[index].name,style: TextStyle(
+                      fontWeight: FontWeight.bold
+                    )),
                     Text(sushies[index].description, 
                     overflow: TextOverflow.ellipsis,
                     ),
@@ -239,9 +244,9 @@ class _MenuState extends State<Menu> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            
-                           
-                            Text('\$$price'),
+                            Text('\$$price', style: TextStyle(
+                              fontWeight: FontWeight.bold
+                            )),
                           ],
                         ),
                         Container(
