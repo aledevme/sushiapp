@@ -35,7 +35,7 @@ class Detail extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 350),
+                SizedBox(height: 320),
                 _floatOption(),
                 SizedBox(height: 20),
                 Container(
@@ -45,12 +45,14 @@ class Detail extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      SizedBox(height: 10),
                       Text('Rolled Maki Sushi', style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.w600
                       )),
-                      
+                      SizedBox(height: 10),
                       _options(),
+                      SizedBox(height: 10),
                       Text('Ingredients', style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w600
@@ -92,6 +94,7 @@ class Detail extends StatelessWidget {
   Widget _sushiImage(){
     return Positioned(
       left: 50,
+      top: -50,
       child: Image(
         image: AssetImage('assets/sushi.png'),
       ),

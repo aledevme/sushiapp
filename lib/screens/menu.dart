@@ -135,12 +135,15 @@ class _MenuState extends State<Menu> {
       decoration: InputDecoration(
         enabledBorder: UnderlineInputBorder(
           borderSide: BorderSide(color: Colors.white),
-          borderRadius: BorderRadius.circular(10)
+          borderRadius: BorderRadius.circular(12)
         ),
         filled: true,
         fillColor: Colors.white,
-        prefixIcon: Icon(Icons.search),
-        labelText: 'Search for your favorite sushi'
+        prefixIcon: Icon(Icons.search, color: Colors.grey),
+        hintText: 'Search for your favorite sushi',
+        focusedBorder:OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.white, width: 2.0),
+        ),
       ),
     );
   }
