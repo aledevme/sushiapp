@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sushi_app/screens/detail.dart';
 import 'package:sushi_app/screens/home.dart';
 import 'package:sushi_app/screens/menu.dart';
  
@@ -11,7 +12,8 @@ class MyApp extends StatelessWidget {
       title: 'Material App',
       routes: {
         '/' : (BuildContext context) => Home(),
-        'menu' : (BuildContext context) => Menu()
+        'menu' : (BuildContext context) => Menu(),
+        'detail' : (BuildContext context) => Detail()
       },
     );
   }

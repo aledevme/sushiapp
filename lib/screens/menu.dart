@@ -140,7 +140,7 @@ class _MenuState extends State<Menu> {
         filled: true,
         fillColor: Colors.white,
         prefixIcon: Icon(Icons.search),
-        hintText: 'Search your favorite sushi'
+        labelText: 'Search for your favorite sushi'
       ),
     );
   }
