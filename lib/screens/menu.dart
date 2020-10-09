@@ -26,31 +26,31 @@ class _MenuState extends State<Menu> {
     Sushi(
       picture: 'https://www.sushishop.eu/product-6473-400x400/dragon-roll.png',
       name:'California roll',
-      description: 'Avocado & salmon',
+      description: 'Salmon',
       price: '7.99'
     ),
     Sushi(
       picture: 'https://www.sushishop.eu/product-6473-400x400/dragon-roll.png',
       name:'California roll',
-      description: 'Avocado & salmon',
+      description: 'Avocado',
       price: '7.99'
     ),
     Sushi(
       picture: 'https://img2.pngio.com/sushi-rolls-png-picture-860384-sushi-roll-png-rainbow-roll-sushi-png-400_400.png',
       name:'Rainbow sushi',
-      description: 'Cheese, salmon & avocado',
+      description: 'Salmon',
       price: '7.99'
     ),
     Sushi(
       picture: 'https://img2.pngio.com/sushi-rolls-png-picture-860384-sushi-roll-png-rainbow-roll-sushi-png-400_400.png',
       name:'Rainbow sushi',
-      description: 'Cheese, salmon & avocado',
+      description: 'Chesee',
       price: '7.99'
     ),
     Sushi(
       picture: 'https://img2.pngio.com/sushi-rolls-png-picture-860384-sushi-roll-png-rainbow-roll-sushi-png-400_400.png',
       name:'Rainbow sushi',
-      description: 'Cheese, salmon & avocado',
+      description: 'Salmon',
       price: '7.99'
     ),
   ];
@@ -75,6 +75,7 @@ class _MenuState extends State<Menu> {
               _textPresentation(),
               SizedBox(height: 20),
               _searchField(),
+              SizedBox(height: 20),
               _carrouselTypesOfSushi(),
               SizedBox(height: 10),
               _listOfSushi()
@@ -200,7 +201,7 @@ class _MenuState extends State<Menu> {
               
               crossAxisCount: 2,
               childAspectRatio: MediaQuery.of(context).size.width /
-                  (MediaQuery.of(context).size.height / 1.6),
+                  (MediaQuery.of(context).size.height / 1.55 ),
             ),
             itemBuilder: (BuildContext context, int index){
               var price = sushies[index].price;
@@ -232,7 +233,28 @@ class _MenuState extends State<Menu> {
                     Text(sushies[index].description, 
                     overflow: TextOverflow.ellipsis,
                     ),
-                    Text('\$$price'),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            
+                           
+                            Text('\$$price'),
+                          ],
+                        ),
+                        Container(
+                          height: 30,
+                          width: 30,
+                          decoration: BoxDecoration(
+                            color: Colors.orange,
+                            borderRadius: BorderRadius.circular(25)
+                          ),
+                          child: Icon(Icons.add, color: Colors.white),
+                        )
+                      ],
+                    )
                   ],
                 )
               );
