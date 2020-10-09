@@ -24,9 +24,27 @@ class _MenuState extends State<Menu> {
 
   List <Sushi> sushies = [
     Sushi(
-      picture: 'https://img2.freepng.es/20180606/jqi/kisspng-california-roll-sushi-sashimi-tempura-japanese-cui-5b187982be6e21.30876342152833062678.jpg',
+      picture: 'https://www.sushishop.eu/product-6473-400x400/dragon-roll.png',
       name:'California roll',
       description: 'Avocado & salmon',
+      price: '7.99'
+    ),
+    Sushi(
+      picture: 'https://www.sushishop.eu/product-6473-400x400/dragon-roll.png',
+      name:'California roll',
+      description: 'Avocado & salmon',
+      price: '7.99'
+    ),
+    Sushi(
+      picture: 'https://img2.pngio.com/sushi-rolls-png-picture-860384-sushi-roll-png-rainbow-roll-sushi-png-400_400.png',
+      name:'Rainbow sushi',
+      description: 'Cheese, salmon & avocado',
+      price: '7.99'
+    ),
+    Sushi(
+      picture: 'https://img2.pngio.com/sushi-rolls-png-picture-860384-sushi-roll-png-rainbow-roll-sushi-png-400_400.png',
+      name:'Rainbow sushi',
+      description: 'Cheese, salmon & avocado',
       price: '7.99'
     ),
     Sushi(
@@ -177,16 +195,46 @@ class _MenuState extends State<Menu> {
     return Expanded(
       child:GridView.builder(
             itemCount: sushies.length,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, crossAxisSpacing: 4.0, mainAxisSpacing: 4.0),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisSpacing: 10,
+              
+              crossAxisCount: 2,
+              childAspectRatio: MediaQuery.of(context).size.width /
+                  (MediaQuery.of(context).size.height / 1.6),
+            ),
             itemBuilder: (BuildContext context, int index){
+              var price = sushies[index].price;
               return Container(
-                child: Card(
-                  child: Column(
-                    children: [
-                      Text(sushies[index].name)
-                    ],
-                  ),
+                padding: EdgeInsets.all(10),
+                margin: EdgeInsets.all(5),
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.1),
+                      spreadRadius: 3,
+                      blurRadius: 2,
+                      offset: Offset(0, 1), // changes position of shadow
+                    ),
+                  ],
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20)
+                  
                 ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Image(
+                      height: 130,
+                      width: 130,
+                      image: NetworkImage(sushies[index].picture),
+                    ),
+                    Text(sushies[index].name),
+                    Text(sushies[index].description, 
+                    overflow: TextOverflow.ellipsis,
+                    ),
+                    Text('\$$price'),
+                  ],
+                )
               );
             },
         ),
